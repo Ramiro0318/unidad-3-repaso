@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:unidad_3_repaso.viewmodels"
+             x:Class="unidad_3_repaso.views.MainView"
+             
+             Title="MainView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar"  IconImageSource="agregar.png" Command="{Binding IrAgregarCommand}"></ToolbarItem>
+        <ToolbarItem Text="Eliminar" IconImageSource="basura.png"  Command="{Binding EliminarCommand}"></ToolbarItem>
+        <ToolbarItem Text="Editar"   IconImageSource="editar.png"  Command="{Binding IrEditarCommad}" CommandParameter="{Binding Receta}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+
+        <ScrollView VerticalScrollBarVisibility="Always">
+
+            <CollectionView SelectedItem="{Binding Receta}" ItemsSource="{Binding OCRecetas}" SelectionMode="Single" Margin="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="DarkSlateGray" StrokeThickness="6">
+
+                            <Grid RowDefinitions=".1*, .1*, .1*" HeightRequest="230" WidthRequest="250" Margin="15" Padding="10">
+                                <Label Text="{Binding Nombre}" Grid.Row="0" FontSize="Large" Grid.Column="0" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                                <Label Text="{Binding Tiempo}" Grid.Row="1" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" MaximumWidthRequest="300" LineBreakMode="WordWrap"></Label>
+                                <Label Text="{Binding Descripcion}" Grid.Row="2" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" MaximumWidthRequest="300" LineBreakMode="WordWrap"></Label>
+                                <!--<Image Source="{Binding Descripcion}" Grid.Row="2" ></Image>-->
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

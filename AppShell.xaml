@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="unidad_3_repaso.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:unidad_3_repaso"
+    xmlns:viewmodels="clr-namespace:unidad_3_repaso.viewmodels"
+    xmlns:views="clr-namespace:unidad_3_repaso.views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="unidad_3_repaso">
+
+    <Shell.BindingContext>
+        <viewmodels:RecetarioViewModel></viewmodels:RecetarioViewModel>
+    </Shell.BindingContext>
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:MainView}"
+        Route="MainView" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:AgregarView}"
+    Route="AgregarView" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:EditarView}"
+    Route="EditarView" />
+
+</Shell>

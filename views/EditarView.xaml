@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="unidad_3_repaso.views.EditarView"
+             xmlns:viewmodels="clr-namespace:unidad_3_repaso.viewmodels"
+             x:DataType="viewmodels:RecetarioViewModel"
+             Title="EditarView">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="0.6*, 1*">
+            <Label Grid.Row="0"  Text="Nombre"></Label>
+            <Entry Grid.Row="1" Text="{Binding Receta.Nombre}"></Entry>
+        </Grid>
+        <Grid RowDefinitions="0.6*, 1*">
+            <Label Grid.Row="0" Text="Descripcion"></Label>
+            <Entry Grid.Row="1" Text="{Binding Receta.Descripcion}"></Entry>
+        </Grid>
+        <Grid RowDefinitions="0.6*, 1*">
+            <Label Grid.Row="0" Text="Tiempo"></Label>
+            <Entry Grid.Row="1" Text="{Binding Receta.Tiempo}"></Entry>
+        </Grid>
+        <Label Grid.Row="0" Text="{Binding Error}" MaxLines="3" MinimumHeightRequest="40"></Label>
+
+        <Grid ColumnDefinitions="0.4*, 0.4*">
+            <Button Grid.Column="0" Command="{Binding EditarCommad}" Text="Agregar" Margin="9"></Button>
+            <Button Grid.Column="1" Command="{Binding CancelarCommand}" Text="Cancelar" Margin="9"></Button>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
